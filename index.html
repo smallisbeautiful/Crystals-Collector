@@ -2,72 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Crystals Collector</title>
-  <!-- Reset CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
-  <!-- Latest compiled and minified CSS (Bootstrap) -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme (Bootstrap) -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <!-- Latest compiled and minified Javascript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+	<meta charset="UTF-8">
+	<title>Crystals Collector Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 </head>
+
 <body>
 
-  <div class="jumbotron text-center">
-    <h1>Crystals Collector</h1></div>
+	<div class="header text-center">
+		<h1>CRYSTALS COLLECTOR</h1>
+		<h3>NUMBER TO MATCH:</h3>
+		<h3 id="randomNumber"></h3>
+	</div>
+	
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+				<img class="crystalimg img-responsive" id="redCrystal" src="assets/images/red-crystal.jpg" alt="Red Crystal"/>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+				<img class="crystalimg img-responsive" id="yellowCrystal" src="assets/images/yellow-crystal.jpg" alt="Yellow Crystal"/>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+				<img class="crystalimg img-responsive" id="blueCrystal" src="assets/images/blue-crystal.jpg" alt="Blue Crystal"/>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+				<img class="crystalimg img-responsive" id="greenCrystal" src="assets/images/green-crystal.jpg" alt="Green Crystal"/>
+			</div>
+		</div>
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12 instructions">
-            <h2>Instructions</h2> 
-            <p>You will be given a random number at the start of the game.</p>
-            <p>Each of the four crystals below carries a specific number of points. Their values are hidden until you click on the crystals.</p>  
-            <p>By clicking on a crystal, you will receive the corresponding points, which will be added to your total score.</p>
-            <p>If your total score matches the randomly generated number, you win the game.  If your total score exceeds the randomly generated number, you lose the game.</p>
-            <p>After each win or loss, the game starts over.</p>
-          </div>
-        </div>
+		<div class="row">
+			<div class="col-lg-12 directions">
+                <p>You will be given a random number at the start of the game.</p> 
+                <p>Each of the four crystals has a hidden value, which will only be revealed when clicked.</p> 
+                <p>With each click, the crystal's value is added to your total score.</p>
+                <p>If your total score matches the random number, you win the game.</p>  
+                <p>If your total score exceeds the random number, you lose the game.</p>
+                <p>Good luck!</p>
+			</div>
+		</div>
 
-    <div class="row">
-      <div class="col-sm-9">
-        <h2>Score to match: <span id="scoreToMatch"></span></h2>
-      </div>
-    <div class="col-sm-3">
-        <h3>Wins: <span id="wins"></span></h3>
-        <h3 class="text-left">Losses: <span id="losses"></span></h3>
-      </div>
+		<div class="row text-center">
+			<div class="col-lg-4 total">
+				<h3>YOUR TOTAL SCORE:</h3>
+				<h3 id="totalScore"></h3>
+			</div>
+			<div class="col-lg-4 button">
+				<h3 id="winOrLose"></h3>
+				<button type="button" class="btn btn-light btn-lg">PLAY AGAIN</button>
+			</div>
+			<div class="col-lg-4 scores">
+				<p class="score">WINS: <span id="wins"></span></p> 
+				<p class="score">LOSSES: <span id="losses"></span></p>
+			</div>
+		</div>
     </div>
-
-      <div class="row text-center">
-        <div class="col-sm-3">
-        <img src="assets/images/red-crystal.jpg" class="img-thumnail red" alt="Red Crystal" width="200" height="200" />
-        </div>
-        <div class="col-sm-3">
-        <img src="assets/images/blue-crystal.jpg" class="img-thumbnail blue" alt="Blue Crystal" width="200" height="200" />
-        </div>
-        <div class="col-sm-3">
-        <img src="assets/images/yellow-crystal.jpg" class="img-thumnail yellow" alt="Yellow Crystal" width="200" height="200" />
-        </div>
-        <div class="col-sm-3">
-          <img src="assets/images/green-crystal.jpg" class="img-thumnail green" alt="Green Crystal" width="200" height="200" />
-        </div>
-      </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-      <h2>Your total score is: <span id="totalScore"></span></h2>
-      </div>
-    </div>
-    </div>
-
 
 </body>
-<!-- JS -->
-<script src="assets/javascript/game.js"></script> 
+
 </html>
